@@ -170,15 +170,6 @@ html.dark .switch .sun{display:none} html.dark .switch .moon{display:block}
 .ad{margin-top:26px}
 .ad img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--divider)}
 /* 赞赏：侧栏底部一行字，点开才出二维码，图用 loading=lazy，不点不下载 */
-.tip-open{margin-top:10px;padding:0;border:0;background:none;font:inherit;font-size:12px;color:var(--t3);cursor:pointer}
-.tip-open:hover{color:var(--brand-1)}
-#tip-mask{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:24px}
-#tip-mask[hidden]{display:none}
-#tip-box{background:var(--bg);border:1px solid var(--divider);border-radius:12px;box-shadow:var(--shadow);width:min(360px,100%);padding:16px;text-align:center}
-#tip-box img{display:block;width:100%;height:auto;border-radius:8px}
-#tip-box p{margin:12px 0;font-size:13px;line-height:1.6;color:var(--t2)}
-#tip-box button{border:1px solid var(--divider);background:var(--bg-soft);color:var(--t2);border-radius:6px;padding:3px 14px;font-size:13px;cursor:pointer;font-family:inherit}
-#tip-box button:hover{color:var(--t1);background:var(--bg-mute)}
 .hint p{margin:4px 0}
 .backdrop{display:none}
 
@@ -396,8 +387,6 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
       <kbd>/</kbd>
     </label>
     <div class="nav-r">
-      <a class="icon-btn" href="README.md" title="查看 README.md" aria-label="README"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3.5h8V17H8z"/></svg></a>
-      <a class="icon-btn" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noopener" title="在 GitHub 上查看源仓库" aria-label="GitHub 仓库"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5.6 18.3 6 18.3 6c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
       <button class="switch" id="theme" aria-label="切换深色模式" title="切换深色模式"><span class="knob"><svg class="sun" viewBox="0 0 24 24"><path d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1zm0 13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm8-6a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM5 11a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm12.07-5.07a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zM8.05 16.95a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0zm9.02 0l.7.71a1 1 0 1 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.42-1.42zM6.34 5.93l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 1.41-1.42zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg><svg class="moon" viewBox="0 0 24 24"><path d="M12.1 22c-5.5 0-10-4.5-10-10 0-4.8 3.4-8.9 8-9.8.5-.1.9.4.7.9A8 8 0 0 0 20.9 13c.5-.2 1 .2.9.7-.9 4.7-5 8.3-9.7 8.3z"/></svg></span></button>
     </div>
   </div>
@@ -493,11 +482,6 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
     <p>每节内的先后顺序不代表性价比高低，想挑划算的就用上面的性价比筛选。</p>
     <p>正文与标签来自仓库 <a href="book/">book/</a> 下的 34 个文件，改正文即改这里。</p>
   </div>
-  <div class="group ad">
-    <div class="gt">广告</div>
-    <a href="https://4.mcyyy.com" target="_blank" rel="noopener"><img src="ads/mcyyy-side.webp" alt="永恒世界 Minecraft 服务器，游戏地址 1.mcyyy.com" width="624" height="312" loading="lazy"></a>
-    <button type="button" class="tip-open" id="tip-open">觉得有用？请作者喝杯咖啡</button>
-  </div>
 </aside>
 
 <main class="content">
@@ -530,14 +514,6 @@ abbr.term:hover{border-bottom-color:var(--brand-1);color:var(--brand-1)}
   <div id="doc-modal" role="dialog" aria-modal="true" aria-labelledby="dm-t">
     <div class="dm-h"><b id="dm-t"></b><a id="dm-gh" target="_blank" rel="noopener">在 GitHub 打开</a><button type="button" id="dm-x" aria-label="关闭">✕</button></div>
     <div class="dm-b"><nav class="dm-toc" id="dm-toc"></nav><div class="dm-doc" id="dm-doc"></div></div>
-  </div>
-</div>
-
-<div id="tip-mask" hidden>
-  <div id="tip-box" role="dialog" aria-modal="true" aria-label="微信赞赏码">
-    <img src="ads/wechat-reward.png" alt="微信赞赏码" width="1037" height="1037" loading="lazy">
-    <p>用微信扫一扫，给不给都行，不影响任何内容。<br>在手机上看的话，先截图，再用微信扫一扫从相册选图。</p>
-    <button type="button" id="tip-x">关闭</button>
   </div>
 </div>
 
@@ -1578,22 +1554,6 @@ document.addEventListener('keydown', ev => {
   if (!POP.hidden){ POP.hidden = true; return; }
   dmClose();
 }, true);
-
-/* ---------- 赞赏码弹窗 ---------- */
-const TIP = document.getElementById('tip-mask');
-function tipClose(){
-  if (TIP.hidden) return;
-  TIP.hidden = true;
-  document.getElementById('tip-open').focus();
-}
-document.getElementById('tip-open').addEventListener('click', () => {
-  TIP.hidden = false;
-  document.getElementById('tip-x').focus();
-  if (window.gtag) gtag('event', 'tip_open');
-});
-document.getElementById('tip-x').addEventListener('click', tipClose);
-TIP.addEventListener('click', ev => { if (ev.target === TIP) tipClose(); });
-document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !TIP.hidden){ ev.stopPropagation(); tipClose(); } }, true);
 
 (async function init(){
   const status = document.getElementById('status');
