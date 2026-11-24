@@ -5,150 +5,184 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>生活自查 · 高性价比人生指南</title>
 <meta name="description" content="回答一组是否题，看看书里哪些事你还没做到：哪一块漏得最多、先做哪几件、哪些一次办完就行。每条单独给出证据和出处，不汇总成「少活几年」。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233451b2'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#193f34" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171f1c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23205b45'/%3E%3Cpath d='M17 33l10 11 20-24' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <script>(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})();</script>
 <style>
-/* 配色、字体与 index.html 同一套（VitePress 默认主题） */
-:root{
-  --bg:#ffffff; --bg-alt:#f6f6f7; --bg-soft:#f6f6f7; --bg-mute:#f1f1f2;
-  --divider:#e2e2e3;
-  --t1:rgba(60,60,67,1); --t2:rgba(60,60,67,.78); --t3:rgba(60,60,67,.56);
-  --brand-1:#3451b2; --brand-2:#3a5ccc; --brand-soft:rgba(100,108,255,.14);
-  --green-1:#18794e; --green-soft:rgba(16,185,129,.14);
-  --yellow-1:#915930; --yellow-soft:rgba(234,179,8,.14);
-  --red-1:#b8272c; --red-soft:rgba(244,63,94,.14);
-  --gray-1:#565a5f; --gray-soft:rgba(142,150,170,.14);
-  --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
-  color-scheme:light;
+:root {
+  --bg: #f4f6f2;
+  --bg-alt: #edf1eb;
+  --bg-elv: #ffffff;
+  --t1: #1b2924;
+  --t2: #43564d;
+  --t3: #53665d;
+  --brand-1: #205b45;
+  --brand-2: #174534;
+  --brand-soft: #e1ede5;
+  --divider: #ced8cf;
+  --control-line: #70887b;
+  --cover: #193f34;
+  --cover-ink: #f5faf5;
+  --cover-muted: #c6ded0;
+  --on-accent: #ffffff;
+  --warning: #7b4b1c;
+  --warning-bg: #f5eada;
+  --danger: #922e2a;
+  --danger-bg: #f5e4e1;
+  --serif: "Songti SC", "Noto Serif CJK SC", "Noto Serif SC", "STSong", SimSun, serif;
+  --font: "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --radius: 8px;
+  color-scheme: light;
 }
-html.dark{
-  --bg:#1b1b1f; --bg-alt:#161618; --bg-soft:#202127; --bg-mute:#2b2b2f;
-  --divider:#2e2e32;
-  --t1:rgba(255,255,245,.86); --t2:rgba(235,235,245,.6); --t3:rgba(235,235,245,.38);
-  --brand-1:#a8b1ff; --brand-2:#5c73e7; --brand-soft:rgba(100,108,255,.16);
-  --green-1:#3dd68c; --green-soft:rgba(16,185,129,.16);
-  --yellow-1:#f9b44e; --yellow-soft:rgba(234,179,8,.16);
-  --red-1:#f66f81; --red-soft:rgba(244,63,94,.16);
-  --gray-1:#a4a8ae; --gray-soft:rgba(142,150,170,.16);
-  color-scheme:dark;
+html.dark {
+  --bg: #171f1c;
+  --bg-alt: #202b25;
+  --bg-elv: #202a25;
+  --t1: #edf3ed;
+  --t2: #c5d4c9;
+  --t3: #a6b9ae;
+  --brand-1: #a7d5b9;
+  --brand-2: #c0e6ce;
+  --brand-soft: #2a4135;
+  --divider: #3b4d43;
+  --control-line: #83998c;
+  --cover: #213d32;
+  --cover-ink: #f1f8f2;
+  --cover-muted: #c2dccd;
+  --on-accent: #16251c;
+  --warning: #edd0a3;
+  --warning-bg: #3d3022;
+  --danger: #f2b1aa;
+  --danger-bg: #432c2b;
+  color-scheme: dark;
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--t1);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
-a{color:var(--brand-1);text-decoration:none}
-a:hover{color:var(--brand-2);text-decoration:underline;text-underline-offset:2px}
-button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--brand-1);outline-offset:2px;border-radius:4px}
-[hidden]{display:none!important}
-.nav{position:sticky;top:0;z-index:10;height:56px;background:var(--bg);border-bottom:1px solid var(--divider);display:flex;align-items:center;gap:12px;padding:0 24px}
-.nav .title{font-weight:600;font-size:16px;color:var(--t1)}
-.nav .title:hover{text-decoration:none}
-.nav .sp{flex:1}
-.nav .back{font-size:14px;font-weight:500}
-.wrap{max-width:760px;margin:0 auto;padding:32px 24px 96px}
-h1{font-size:28px;line-height:1.3;margin:0 0 12px;font-weight:600;letter-spacing:-.01em}
-.lead{color:var(--t2);margin:0 0 28px}
-h2{font-size:18px;font-weight:600;margin:36px 0 4px;padding-top:24px;border-top:1px solid var(--divider)}
-h2 small{font-weight:400;font-size:13px;color:var(--t3);margin-left:8px}
-.q{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--divider)}
-h2+.q{border-top:0}
-.q .txt{flex:1;min-width:0}
-.q .txt small{display:block;color:var(--t3);font-size:13px;line-height:1.5}
-.seg{display:inline-flex;flex:none;border:1px solid var(--divider);border-radius:8px;overflow:hidden;background:var(--bg-soft)}
-.seg button{padding:5px 12px;font-size:14px;color:var(--t2);border-left:1px solid var(--divider);white-space:nowrap;transition:background .2s,color .2s}
-.seg button:first-child{border-left:0}
-.seg button:hover{color:var(--t1)}
-.seg button[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand-1);font-weight:600}
-.seg button.no[aria-pressed="true"]{background:var(--red-soft);color:var(--red-1)}
-.seg button.yes[aria-pressed="true"]{background:var(--green-soft);color:var(--green-1)}
-.profile-age{width:7em;padding:6px 10px;border:1px solid var(--divider);border-radius:8px;background:var(--bg-soft);color:var(--t1);font:inherit}
-.bar{position:sticky;bottom:0;margin-top:32px;padding:14px 0;background:var(--bg);border-top:1px solid var(--divider);display:flex;align-items:center;gap:16px}
-.bar .prog{flex:1;color:var(--t2);font-size:14px}
-.btn{border-radius:20px;padding:0 20px;line-height:38px;font-weight:600;font-size:14px;background:var(--brand-1);color:#fff;transition:background .2s}
-html.dark .btn{color:#1b1b1f}
-.btn:hover{background:var(--brand-2)}
-.btn.ghost{background:var(--bg-mute);color:var(--t1)}
-.btn.ghost:hover{background:var(--divider)}
-.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 12px}
-.tile{background:var(--bg-soft);border-radius:10px;padding:14px 16px}
-.tile b{display:block;font-size:26px;line-height:1.2;font-variant-numeric:tabular-nums}
-.tile span{font-size:13px;color:var(--t2)}
-.tile.r3 b{color:var(--brand-1)} .tile.r2 b{color:var(--green-1)}
-.note{font-size:13.5px;color:var(--t2);background:var(--bg-soft);border-radius:8px;padding:12px 16px;margin:20px 0}
-.note b{color:var(--t1)}
-.card{border:1px solid var(--divider);border-radius:12px;padding:16px 20px;margin:12px 0;background:var(--bg)}
-.card .h{display:flex;gap:10px;align-items:baseline}
-.card .h b{flex:1;font-size:16px;font-weight:600;line-height:1.5}
-.card .h a{flex:none;font-size:13px;white-space:nowrap}
-.card .human{margin:8px 0 10px;color:var(--t1)}
-.card .cost{font-size:13.5px;color:var(--t2);margin-top:6px}
-.card .caution{font-size:13.5px;color:var(--t2);background:var(--yellow-soft);border-radius:8px;padding:10px 12px;margin:10px 0}
-.card .caution summary{cursor:pointer;font-weight:600;color:var(--t1)}
-.card .caution[open] summary{margin-bottom:6px}
-.card .also{margin-top:10px;padding-top:10px;border-top:1px dashed var(--divider);font-size:13.5px;color:var(--t2)}
-.badges{display:flex;flex-wrap:wrap;gap:6px}
-.badge{display:inline-block;border-radius:10px;padding:0 10px;line-height:20px;font-size:12px;font-weight:600;white-space:nowrap}
-.badge.A{background:var(--green-soft);color:var(--green-1)}
-.badge.B{background:var(--yellow-soft);color:var(--yellow-1)}
-.badge.C{background:var(--gray-soft);color:var(--gray-1)}
-.badge.r3{background:var(--brand-soft);color:var(--brand-1)}
-.badge.r2{background:var(--green-soft);color:var(--green-1)}
-.badge.r1,.badge.plain{background:var(--gray-soft);color:var(--gray-1)}
-.badge.warn{background:var(--yellow-soft);color:var(--yellow-1)}
-.verdict{font-size:16px;line-height:1.85;margin:0 0 20px}
-.verdict b{font-weight:600}
-.mods{display:flex;flex-wrap:wrap;gap:8px}
-.mods button{border:1px solid var(--divider);border-radius:16px;padding:3px 14px;font-size:14px;color:var(--t2);background:var(--bg-soft)}
-.mods button[aria-pressed="true"]{border-color:var(--brand-1);background:var(--brand-soft);color:var(--brand-1);font-weight:600}
-.hbar{display:grid;grid-template-columns:8.5em 1fr 4.5em;align-items:center;gap:12px;padding:6px 0;font-size:14px}
-.hbar .nm{color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hbar .tr{height:10px;border-radius:5px;background:var(--bg-mute);overflow:hidden}
-.hbar .fl{height:100%;border-radius:0 4px 4px 0;background:var(--brand-1)}
-.hbar .v{color:var(--t2);text-align:right;font-variant-numeric:tabular-nums}
-.top3{margin:8px 0 0;padding-left:22px}
-.top3 li{margin:6px 0}
-.top3 .why{color:var(--t2);font-size:13.5px}
-.copy-tools{margin-top:12px}
-.copy-status{margin:8px 0 0;color:var(--t2);font-size:14px}
-.copy-tools label{display:block;margin:12px 0 4px;font-size:14px}
-.copy-tools textarea{display:block;width:100%;padding:12px;border:1px solid var(--divider);border-radius:8px;background:var(--bg-soft);color:var(--t1);font:inherit;font-size:14px;resize:vertical}
-.copy-tools button:disabled{cursor:wait;opacity:.65}
-.card{scroll-margin-top:72px}
-.done-list{color:var(--t2);font-size:14px;padding-left:20px}
-#status{color:var(--t2);padding:40px 0;text-align:center}
-@media (max-width:640px){
-  .nav{padding:0 16px}
-  .wrap{padding:24px 16px 80px}
-  h1{font-size:24px}
-  .q{flex-direction:column;align-items:stretch;gap:8px}
-  .seg{align-self:flex-start}
-  .sum{grid-template-columns:repeat(2,1fr)}
-  .hbar{grid-template-columns:7.5em 1fr 3.8em;gap:8px}
+* { box-sizing: border-box; }
+html { scroll-padding-block: 88px 120px; }
+body { margin: 0; background: var(--bg); color: var(--t1); font: 16px/1.75 var(--font); -webkit-font-smoothing: antialiased; }
+a { color: var(--brand-1); text-underline-offset: .2em; overflow-wrap: anywhere; }
+a:hover { color: var(--brand-2); }
+button, input, textarea { font: inherit; color: inherit; }
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+summary { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--brand-1); outline-offset: 3px; }
+[hidden] { display: none !important; }
+.nav { position: sticky; z-index: 20; top: 0; background: var(--bg-elv); border-bottom: 1px solid var(--divider); }
+.nav-in { max-width: 1240px; min-height: 72px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline: 24px; }
+.title { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; color: var(--t1); text-decoration: none; font-weight: 700; }
+.logo { width: 34px; height: 34px; display: grid; place-items: center; border-radius: var(--radius); background: var(--brand-1); color: var(--on-accent); flex: none; }
+.logo svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.wrap { max-width: 944px; margin-inline: auto; padding: 32px 24px 72px; }
+.check-cover { margin-bottom: 32px; padding: clamp(24px, 4.3vw, 52px); border-radius: var(--radius); background: var(--cover); color: var(--cover-ink); }
+.check-cover :focus-visible { outline-color: var(--cover-ink); }
+h1 { margin: 0; font: 700 clamp(36px, 5.5vw, 56px)/1.22 var(--serif); letter-spacing: -.025em; }
+.lead, .verdict { max-width: 40em; color: var(--cover-muted); margin: 14px 0 0; }
+.verdict b { color: var(--cover-ink); }
+h2 { margin: 32px 0 8px; padding-top: 16px; border-top: 1px solid var(--divider); font: 700 25px/1.4 var(--serif); }
+#profile-qs > h2:first-child { margin-top: 0; padding-top: 0; border: 0; }
+h2 small { display: inline-block; margin-left: 8px; color: var(--t3); font: 400 14px/1.65 var(--font); }
+.q { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--divider); }
+.q .txt { min-width: 0; }
+.q .txt small { display: block; color: var(--t3); font-size: 14px; line-height: 1.55; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg button, .mods button, .nav-link, .btn {
+  min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  padding: 6px 12px; border: 1px solid var(--control-line); border-radius: var(--radius);
+  background: var(--bg-elv); color: var(--t1); text-decoration: none; font-size: 14px; font-weight: 600;
+  transition: background-color 140ms ease, color 140ms ease, transform 90ms ease;
+}
+.seg button:hover, .mods button:hover, .nav-link:hover, .btn.ghost:hover { background: var(--brand-soft); color: var(--brand-1); }
+.seg button:active, .mods button:active, .nav-link:active, .btn:active { transform: scale(.98); }
+.seg button[aria-pressed="true"], .mods button[aria-pressed="true"] { background: var(--brand-soft); border-color: var(--brand-1); color: var(--brand-1); font-weight: 700; box-shadow: inset 0 0 0 1px var(--brand-1); }
+.seg button.no[aria-pressed="true"] { background: var(--danger-bg); color: var(--danger); border-color: var(--danger); box-shadow: inset 0 0 0 1px var(--danger); }
+.profile-age { width: 7em; min-height: 44px; padding: 6px 10px; border: 1px solid var(--control-line); border-radius: var(--radius); background: var(--bg-elv); color: var(--t1); }
+.mods { display: flex; flex-wrap: wrap; gap: 8px; max-width: 34rem; }
+.bar { position: sticky; bottom: 0; display: flex; align-items: center; gap: 8px; z-index: 10; margin-top: 24px; padding: 12px 0 calc(12px + env(safe-area-inset-bottom)); background: var(--bg); border-top: 1px solid var(--divider); }
+.prog { flex: 1; color: var(--t2); font-size: 14px; font-variant-numeric: tabular-nums; }
+.btn { background: var(--brand-1); border-color: var(--brand-1); color: var(--on-accent); white-space: nowrap; }
+.btn:hover { background: var(--brand-2); }
+.btn.ghost { background: var(--bg-elv); border-color: var(--control-line); color: var(--t1); }
+.sum { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 18px; border-block: 1px solid var(--divider); }
+.tile { padding: 14px 12px; border-right: 1px solid var(--divider); }
+.tile:last-child { border-right: 0; }
+.tile b { display: block; font-size: 27px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.tile span { display: block; margin-top: 6px; color: var(--t2); font-size: 14px; line-height: 1.5; }
+.tile.r3 b, .tile.r2 b { color: var(--brand-1); }
+.note { color: var(--t2); padding: 12px 16px; margin: 20px 0; background: var(--bg-alt); border-left: 3px solid var(--control-line); }
+.note b { color: var(--t1); }
+.card { border-top: 1px solid var(--divider); padding: 16px 0; margin-top: 12px; }
+.card .h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.card .h b { flex: 1 1 280px; font-size: 18px; line-height: 1.55; }
+.card .h a { font-size: 14px; }
+.card .human { margin: 8px 0 12px; }
+.card .cost, .card .also { margin-top: 8px; color: var(--t2); }
+.card .caution { background: var(--warning-bg); color: var(--warning); padding: 0 12px; margin: 8px 0; border-radius: var(--radius); }
+.card .caution summary { min-height: 44px; padding-block: 8px; font-weight: 700; }
+.card .caution[open] { padding-bottom: 10px; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge { padding: 1px 8px; border-radius: 4px; background: var(--bg-alt); color: var(--t2); font-size: 13px; font-weight: 500; }
+.badge.A, .badge.r3 { background: var(--brand-soft); color: var(--brand-1); font-weight: 700; }
+.badge.warn { background: var(--warning-bg); color: var(--warning); }
+.hbar { display: grid; grid-template-columns: minmax(0, 9em) minmax(16px, 1fr) max-content; align-items: center; gap: 12px; padding: 7px 0; font-size: 14px; }
+.hbar .tr { height: 8px; border-radius: 4px; background: var(--divider); overflow: hidden; }
+.hbar .fl { height: 100%; border-radius: 4px; background: var(--brand-1); }
+.hbar .v { min-width: 3.5em; color: var(--t2); text-align: right; font-variant-numeric: tabular-nums; }
+.top3, .done-list { padding-left: 1.4em; }
+.top3 li + li, .done-list li + li { margin-top: 8px; }
+.top3 .why, .copy-status { color: var(--t2); font-size: 14px; }
+.copy-tools { margin-top: 12px; }
+.copy-status { margin: 8px 0 0; }
+.copy-tools label { display: block; margin: 12px 0 4px; }
+.copy-tools textarea { display: block; width: 100%; padding: 12px; border: 1px solid var(--control-line); border-radius: var(--radius); background: var(--bg-elv); resize: vertical; }
+.copy-tools button:disabled { cursor: wait; opacity: .65; }
+#status { color: var(--t2); padding: 32px 0; }
+@media (max-width: 680px) {
+  .nav-in { min-height: 64px; padding-inline: 16px; }
+  .title { gap: 8px; font-size: 14px; }
+  .logo { width: 30px; height: 30px; }
+  .wrap { padding: 16px 16px 48px; }
+  .check-cover { margin-bottom: 24px; }
+  .q { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .sum { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile:nth-child(2) { border-right: 0; }
+  .tile:nth-child(n+3) { border-top: 1px solid var(--divider); }
+  .bar { flex-wrap: wrap; }
+  .bar .prog { flex-basis: 100%; }
+  .hbar { gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
 }
 </style>
 </head>
 <body>
 <header class="nav">
-  <a class="title" href="./">高性价比人生指南</a>
-  <span class="sp"></span>
-  <a class="back" href="./">回检索页</a>
+  <div class="nav-in">
+    <a class="title" href="./"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></svg></span>高性价比人生指南</a>
+    <a class="nav-link" href="./">回检索页</a>
+  </div>
 </header>
 <main class="wrap">
-  <div id="status">正在读取正文 …</div>
+  <div id="status" role="status">正在读取正文 …</div>
 
   <section id="ask" hidden>
-    <h1>生活自查</h1>
-    <p class="lead">回答下面的问题，看看书里哪些事你还没做到。结果会告诉你哪一块漏得最多、先做哪几件、哪些一次办完就行。每条单独给出证据和出处，不汇总成一个分数。</p>
+    <div class="check-cover">
+      <h1 tabindex="-1">生活自查</h1>
+      <p class="lead">回答下面的问题，看看书里哪些事你还没做到。结果会列出可以先做的几件事，以及每条建议的证据和出处。</p>
+    </div>
     <div id="qs"><div id="profile-qs"></div><div id="topic-qs"></div></div>
     <div class="bar">
-      <span class="prog" id="prog"></span>
+      <span class="prog" id="prog" aria-live="polite"></span>
       <button class="btn ghost" id="reset" type="button">清空</button>
       <button class="btn" id="go" type="button">看结果</button>
     </div>
   </section>
 
   <section id="out" hidden>
-    <h1>自查结果</h1>
-    <p class="verdict" id="verdict"></p>
+    <div class="check-cover">
+      <h1 tabindex="-1">自查结果</h1>
+      <p class="verdict" id="verdict"></p>
+    </div>
     <div class="sum" id="sum"></div>
     <h2>哪一块漏得最多<small>按做到的比例从低到高排</small></h2>
     <div id="bars"></div>
@@ -327,22 +361,23 @@ const qid = q => q.sec + ':' + q.key + (q.rev ? ':v' + q.rev : '');
 const shown = (q, p) => q.entry && modOn(q.g.mod) && (!q.when || (profileDone() && q.when(p)));
 const activeQs = () => { const p = profile(); return GROUPS.flatMap(g => g.qs).filter(q => shown(q, p)); };
 
-function seg(name, opts, cur){
-  return `<div class="seg" role="group">` + opts.map(([v, t, cls]) =>
+function seg(name, opts, cur, label){
+  return `<div class="seg" role="group" aria-label="${esc(label)}">` + opts.map(([v, t, cls]) =>
     `<button type="button" data-k="${esc(name)}" data-v="${v}" class="${cls||''}" aria-pressed="${cur === v}">${t}</button>`).join('') + `</div>`;
 }
 const YN = [['y','做到了','yes'],['n','没做到','no'],['s','跳过']];
 
 function renderAsk(updateProfile = true){
   const p = profile();
-  let h = `<h2 style="border-top:0;padding-top:0;margin-top:0">基本情况<small>决定问哪些题</small></h2>`;
+  let h = `<h2>基本情况<small>决定问哪些题</small></h2>`;
   for (const f of PROFILE) {
     const control = f.type === 'number'
-      ? `<input class="profile-age" id="profile-age" type="number" inputmode="numeric" min="0" max="120" step="1" data-k="p:${f.id}" aria-label="${f.text}" value="${esc(String(ans['p:'+f.id] ?? ''))}">`
-      : seg('p:'+f.id, f.opts, ans['p:'+f.id]);
-    h += `<div class="q"><div class="txt">${f.text}</div>${control}</div>`;
+      ? `<input class="profile-age" id="profile-age" type="number" inputmode="numeric" min="0" max="120" step="1" data-k="p:${f.id}" value="${esc(String(ans['p:'+f.id] ?? ''))}">`
+      : seg('p:'+f.id, f.opts, ans['p:'+f.id], f.text);
+    const label = f.type === 'number' ? `<label class="txt" for="profile-age">${f.text}</label>` : `<div class="txt">${f.text}</div>`;
+    h += `<div class="q">${label}${control}</div>`;
   }
-  h += `<div class="q"><div class="txt">想查哪几块<small>点一下取消，不查的整块不出题</small></div><div class="mods">`
+  h += `<div class="q"><div class="txt">想查哪几块<small>点一下取消，不查的整块不出题</small></div><div class="mods" role="group" aria-label="自查主题">`
     + MODS.map(m => `<button type="button" data-mod="${m}" aria-pressed="${modOn(m)}">${m}</button>`).join('') + `</div></div>`;
   if (updateProfile) document.getElementById('profile-qs').innerHTML = h;
   h = '';
@@ -350,7 +385,7 @@ function renderAsk(updateProfile = true){
     const qs = g.qs.filter(q => shown(q, p));
     if (!qs.length) continue;
     h += `<h2>${g.name}</h2>`;
-    for (const q of qs) h += `<div class="q"><div class="txt">${esc(q.text)}${q.hint ? `<small>${esc(q.hint)}</small>` : ''}</div>${seg(qid(q), YN, ans[qid(q)])}</div>`;
+    for (const q of qs) h += `<div class="q"><div class="txt">${esc(q.text)}${q.hint ? `<small>${esc(q.hint)}</small>` : ''}</div>${seg(qid(q), YN, ans[qid(q)], q.text)}</div>`;
   }
   document.getElementById('topic-qs').innerHTML = h;
   const qs = activeQs(), n = qs.filter(q => ans[qid(q)]).length;
@@ -364,7 +399,7 @@ function card(e, also){
   const alsoH = also.length ? `<div class="also">相关做法：` + also.map(a =>
     `<a href="./#e-${a.sec}-${a.n}">${esc(plain(a.title))}</a>`).join('；') + `</div>` : '';
   return `<div class="card" id="c-${e.sec}-${e.n}">
-    <div class="h"><b>${esc(plain(e.title))}</b><a href="./#e-${e.sec}-${e.n}">第 ${e.sec} 节第 ${e.n} 条 →</a></div>
+    <div class="h"><b>${esc(plain(e.title))}</b><a href="./#e-${e.sec}-${e.n}">第 ${e.sec} 节第 ${e.n} 条</a></div>
     ${e.note ? `<details class="caution"><summary>适用条件与注意事项</summary>${esc(plain(e.note))}</details>` : ''}
     ${e.human ? `<div class="human">${esc(plain(e.human))}</div>` : ''}
     <div class="badges"><span class="badge ${r}">性价比 ${e.ratio}</span><span class="badge ${e.grade}">证据 ${e.grade} 级</span><span class="badge plain">收益 ${e.level}</span>${lens}${e.dispute ? '<span class="badge warn">有争议</span>' : ''}</div>
@@ -444,10 +479,11 @@ function renderOut(){
   document.getElementById('done-h').hidden = !yes.length;
 }
 
-function show(which){
+function show(which, focus = false){
   document.getElementById('ask').hidden = which !== 'ask';
   document.getElementById('out').hidden = which !== 'out';
   scrollTo(0, 0);
+  if (focus) document.querySelector('#' + which + ' h1').focus({preventScroll: true});
 }
 
 document.getElementById('todo').addEventListener('click', async ev => {
@@ -475,10 +511,18 @@ document.getElementById('todo').addEventListener('click', async ev => {
 
 document.getElementById('qs').addEventListener('click', ev => {
   const mb = ev.target.closest('button[data-mod]');
-  if (mb) { ans['mod:' + mb.dataset.mod] = modOn(mb.dataset.mod) ? 'off' : undefined; save(); renderAsk(); return; }
+  if (mb) {
+    const {mod} = mb.dataset;
+    ans['mod:' + mod] = modOn(mod) ? 'off' : undefined;
+    save(); renderAsk();
+    document.querySelector(`button[data-mod="${CSS.escape(mod)}"]`)?.focus({preventScroll: true});
+    return;
+  }
   const b = ev.target.closest('button[data-k]'); if (!b) return;
-  ans[b.dataset.k] = ans[b.dataset.k] === b.dataset.v ? undefined : b.dataset.v;
+  const {k, v} = b.dataset;
+  ans[k] = ans[k] === v ? undefined : v;
   save(); renderAsk();
+  document.querySelector(`button[data-k="${CSS.escape(k)}"][data-v="${CSS.escape(v)}"]`)?.focus({preventScroll: true});
 });
 document.getElementById('qs').addEventListener('input', ev => {
   if (!ev.target.matches('input[data-k="p:ageYears"]')) return;
@@ -488,9 +532,9 @@ document.getElementById('qs').addEventListener('input', ev => {
 });
 document.getElementById('go').addEventListener('click', () => {
   if (!profileDone()) { document.getElementById('prog').textContent = '请填完整基本情况，年龄填 0 到 120 的整数'; return; }
-  renderOut(); show('out');
+  renderOut(); show('out', true);
 });
-document.getElementById('back').addEventListener('click', () => show('ask'));
+document.getElementById('back').addEventListener('click', () => show('ask', true));
 document.getElementById('reset').addEventListener('click', () => { ans = {}; save(); renderAsk(); });
 
 (async function init(){
